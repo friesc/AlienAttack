@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_rgtsn"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_rgtsn")
 
@@ -15,3 +16,8 @@ texture = ExtResource("1_c36mm")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = 1.5708
 polygon = PackedVector2Array(0, -28, -11, -26, -17, -22, -23, -21, -30, -17, -39, -8, -35, 2, -29, 5, -25, 17, -14, 11, -7, 17, 0, 26, 14, 10, 25, 17, 30, 5, 36, 1, 39, -7, 35, -10, 28, -18, 21, -21, 15, -23, 10, -27)
+
+[node name="RocketSpawnpoint" type="Marker2D" parent="."]
+position = Vector2(43, 0)
+
+[node name="RocketContainer" type="Node" parent="."]
