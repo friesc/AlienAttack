@@ -1,5 +1,6 @@
 class_name Player extends CharacterBody2D
 
+signal took_damage
 ## Default player speed
 @export var speed = 150.0 
 @onready var rocket_container := $RocketContainer
@@ -33,3 +34,11 @@ func shoot() -> void:
 	var rocket_instance = rocket_scene.instantiate()
 	rocket_container.add_child(rocket_instance)
 	rocket_instance.global_position = rocket_spawnpoint.global_position
+
+
+func take_damage() -> void:
+	emit_signal("took_damage")
+	
+	
+func die() -> void:
+	queue_free()
