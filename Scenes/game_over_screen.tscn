@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbwac8plf4ari"]
+
+[ext_resource type="Texture2D" uid="uid://b2ax37ca06wgt" path="res://Assets/textures/orb.png" id="1_j3blr"]
+[ext_resource type="Script" path="res://Scripts/game_over_screen.gd" id="1_sr0pa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4cof"]
+bg_color = Color(1, 0, 0.0705882, 0.721569)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_pciks"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_n2fdc"]
+font_size = 48
+font_color = Color(1, 0.709804, 0.376471, 1)
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sr0pa")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -434.0
+offset_top = -212.0
+offset_right = 434.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n4cof")
+
+[node name="RetryButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -162.0
+offset_top = -170.0
+offset_right = 162.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "RETRY"
+icon = ExtResource("1_j3blr")
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -183.5
+offset_top = 30.0
+offset_right = 183.5
+offset_bottom = 118.0
+grow_horizontal = 2
+text = "GAME OVER
+"
+label_settings = SubResource("LabelSettings_pciks")
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -64.0
+offset_right = 103.5
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 99"
+label_settings = SubResource("LabelSettings_n2fdc")
+
+[connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]

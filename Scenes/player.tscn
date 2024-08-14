@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4g05jcy1f48o"]
+[gd_scene load_steps=4 format=3 uid="uid://b4g05jcy1f48o"]
 
 [ext_resource type="Texture2D" uid="uid://3txy8kn4usfm" path="res://Assets/textures/player_ship.png" id="1_c36mm"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_rgtsn"]
+[ext_resource type="AudioStream" uid="uid://ceqe6pxohwen8" path="res://Assets/audio/sfx_laser2.wav" id="3_46l1h"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -21,3 +22,6 @@ polygon = PackedVector2Array(0, -28, -11, -26, -17, -22, -23, -21, -30, -17, -39
 position = Vector2(43, 0)
 
 [node name="RocketContainer" type="Node" parent="."]
+
+[node name="RocketFireSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_46l1h")

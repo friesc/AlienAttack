@@ -5,6 +5,8 @@ signal took_damage
 @export var speed = 150.0 
 @onready var rocket_container := $RocketContainer
 @onready var rocket_spawnpoint := $RocketSpawnpoint
+@onready var rocket_fire_sound := $RocketFireSound
+
 var rocket_scene := preload("res://Scenes/rocket.tscn")
 
 
@@ -34,6 +36,7 @@ func shoot() -> void:
 	var rocket_instance = rocket_scene.instantiate()
 	rocket_container.add_child(rocket_instance)
 	rocket_instance.global_position = rocket_spawnpoint.global_position
+	rocket_fire_sound.play()
 
 
 func take_damage() -> void:
