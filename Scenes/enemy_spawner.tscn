@@ -5,7 +5,11 @@
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_e5whw")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="PathEnemyTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="BasicEnemyTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
@@ -29,4 +33,5 @@ position = Vector2(1350, 650)
 
 [node name="EnemyContainer" type="Node" parent="."]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PathEnemyTimer" to="." method="_on_path_enemy_timer_timeout"]
+[connection signal="timeout" from="BasicEnemyTimer" to="." method="_on_basic_enemy_timer_timeout"]

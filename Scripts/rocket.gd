@@ -16,9 +16,7 @@ func _on_screen_exited() -> void:
 	queue_free()
 
 
-func _on_area_entered(area : Area2D):
-	if area is BasicEnemy:
-		area.die()
-
+func _on_area_entered(enemy : BasicEnemy):
+	enemy.die(true)
 	queue_free()
 

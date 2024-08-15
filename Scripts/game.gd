@@ -33,13 +33,20 @@ func _on_player_took_damage():
 		
 		var game_over_menu_instance = game_over_scene.instantiate()
 		$Menus.add_child(game_over_menu_instance)
+		game_over_menu_instance.set_score(score)
 
 
 func _on_enemy_spawner_enemy_spawned(enemy_instance : BasicEnemy):
 	enemy_instance.connect("died", on_enemy_died)
 
 
-func on_enemy_died() -> void:
-	score += 1
-	hud.set_score_label(score)
+func on_enemy_died(should_score : bool) -> void:
+	if should_score:
+		score += 1
+		hud.set_score_label(score)
+		
 	enemy_hit_sound.play()
+
+
+func _on_enemy_spawner_path_enemy_spawned(enemy_instance: PathEnemy):
+	enemy_instance.enemy.connect("died", on_enemy_died)
